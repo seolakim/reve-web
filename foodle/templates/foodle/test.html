@@ -1,0 +1,42 @@
+{% extends 'foodle/search.html' %}
+
+{% block searchlist %}
+<p style="font-family:'Noto Sans KR';">검색어 : {{ searchwords }}</p>
+<div class="contents">
+  <div id="map">
+    <iframe width="100%" height="100%" frameborder="0" style="border:0;"
+    src="https://www.google.com/maps/embed/v1/search?q={{searchwords}}&key=AIzaSyBHvNN5IZD4rBkWAbmuQzUaAjqVhz9CRPM" allowfullscreen></iframe>
+  </div>
+  {% for list in lists %}
+    <div class="searchlist">
+      <div style="float:left;">
+        {% if list.photo != "not" %}
+          <a href="{{ list.url }}"><img src={{ list.photo }}></a>
+        {% endif %}
+      </div>
+      <div>
+        <label class="title"><a href="{{ list.url }}">{{ list.title }}</a></label>
+        <label class="date">{{ list.date }}</label>
+        <p class="subtitle">{{ list.subtitle }}</p>
+        <p class="url"><a href="{{ list.url }}">{{ list.url }}</a></p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  <span class="step-links">
+    {% if lists.has_previous %}
+      <a href="?page={{ lists.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ lists.number }} of {{ lists.paginator.num_pages }}.
+    </span>
+
+    {% if lists.has_next %}
+      <a href="?page={{ lists.next_page_number }}">next</a>
+    {% endif %}
+  </span>
+</div>
+{% endblock searchlist %}

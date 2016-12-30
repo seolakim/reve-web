@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);               /* Hanna */
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);          /* Jeju Gothic */
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);        /* Jeju Hallasan */
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);        /* Jeju Myeongjo*/
+@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);         /* KoPub Batang */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);    /* Nanum Brush Script */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);         /* Nanum Gothic */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);   /* Nanum Gothic Coding */
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);       /* Nanum Myeongjo*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);      /* Nanum Pen Script */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);          /* Noto Sans KR */
+
+html,body{
+  height: 100%;
+  margin: 0;
+}
+body input{
+  width: 50%;
+  height: 30px;
+  box-shadow: 0px 2px 3px 1px #DDDDDD;
+  border: 0px solid #DDDDDD;
+  border-radius: 1px;
+  font-family: 'Noto Sans KR';
+  font-size: 17px;
+  vertical-align: middle;
+}
+
+/*home.html*/
+.wrapper{
+  min-height: 90%;
+}
+.footer{
+  height: 10%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+footer, .push{
+  height: 60px;
+}
+
+/*search.html*/
+#map{
+  width:40%;
+  height:300px;
+  float:right;
+  text-align: right;
+}
+#searchlist{
+  margin: 0 120px 40px 120px;
+}
+.wisesaying{
+  font-family:'Hanna';
+  font-size:28px;
+  color: #333333;
+  margin: 40px 0 0 30px;
+  vertical-align: middle;
+}
+.searchlist{
+  font-family: 'Noto Sans KR';
+  width: 55%;
+  height: 120px;
+}
+.searchlist img{
+  height: 80px;
+  width: 80px;
+  padding: 7px 10px 0 0;
+}
+.title{
+  font-size: 18px;
+}
+.title a{
+  text-decoration: none;
+}
+.title a.hover{
+  text-decoration: underline;
+}
+.date{
+  font-size: 13px;
+  float: right;
+  color: #333333;
+}
+.subtitle{
+  font-size: 13px;
+  color: #333333;
+  margin-top: 5px;
+}
+.url{
+  font-size: 11px;
+  margin-top: -12px;
+}
+.url a{
+  color: #007700;
+  text-decoration: none;
+}
+.pagination{
+  font-family: 'Nanum Gothic Coding';
+  weight: bold;
+  text-align:center;
+  width:55%;
+  word-spacing:1em;
+}
+.pagination a:visited, .pagination a:link{
+  color: rgb(0,100,200);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+.pagination a:hover{
+  text-decoration: underline;
+}

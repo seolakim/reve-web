@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="/" />
+  <link rel="stylesheet" href="{% static 'css/foodle.css' %}">
+  <title>{% block title %}ReveFood{% endblock %}</title>
+</head>
+
+<body>
+  <div id="searchbar" style="height:100px; background-color:#F0F0F0;">
+    <form action="/search/" style="line-height: 100px;">
+      <a href="/"><img alt="reve" src="..\..\static\images\reve.png" style="width:130px; vertical-align:middle; margin:-6px 0 0 10px;"></a>
+      <input id="search_words" type="text" name="search_words" value="{{ search_words }}">
+      <label class="wisesaying">{{ wisesaying }}</label>
+    </form>
+  </div>
+
+  <div id="searchlist">
+    <p style="font-family:'Noto Sans KR';">검색어 : {{ searchwords }}</p>
+    <div class="contents">
+      {% if searchwords != ''%}
+        <div id="map">
+          <iframe width="100%" height="100%" frameborder="0" style="border:0;"
+          src="https://www.google.com/maps/embed/v1/search?q={{searchwords}}&key=AIzaSyBHvNN5IZD4rBkWAbmuQzUaAjqVhz9CRPM" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+      {% for list in lists %}
+        <div class="searchlist">
+          <div style="float:left;">
+            {% if list.photo != "not" %}
+              <a href="{{ list.url }}"><img src={{ list.photo }}></a>
+            {% endif %}
+          </div>
+          <div>
+            <label class="title"><a href="{{ list.url }}">{{ list.title }}</a></label>
+            <label class="date">{{ list.data }}</label>
+            <p class="subtitle">{{ list.subtitle }}</p>
+            <p class="url"><a href="{{ list.url }}">{{ list.url }}</a></p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="pagination">
+      <span class="step-links">
+        {% if lists.has_previous %}
+          <a href="?page={{ lists.previous_page_number }}">이전</a>
+        {% endif %}
+
+        <!--span class="current">
+          Page {{ lists.number }} of {{ lists.paginator.num_pages }}.
+        </span-->
+        {% for i in lists.page_range_data.page_range %}
+          {% ifequal i lists.number %}
+            {{ i }}
+          {% else %}
+            <a href="?page={{ i }}">{{ i }}</a>
+          {% endifequal %}
+        {% endfor %}
+
+        {% if lists.has_next %}
+          <a href="?page={{ lists.next_page_number }}">다음</a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+</body>
+</html>
