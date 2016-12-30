@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'food',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.0.29',
         'PORT': '3306',
     }
 }
