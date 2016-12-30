@@ -25,7 +25,7 @@ SECRET_KEY = '!5%a(q@21m@3t$35*af@%4v-@&+0@dnsbcwwv+yb0s_p_!*%+u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://reve.pythonanywhere.com/']
+ALLOWED_HOSTS = ['reve.pythonanywhere.com/']
 
 
 # Application definition
