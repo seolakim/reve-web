@@ -54,7 +54,7 @@ def search(request):
         else:
             #search.foodle_list = mysqlexport(search.searchwords)
             search.w_list = wordslist(search.searchwords)
-            q = (Q(title__contains=search.searchwords) | Q(subtitle__contains=search.searchwords)) | Q(ind__contains=search.searchwords)
+            q = Q()
             for wlist in search.w_list:
                 q = q & ((Q(title__contains=wlist) | Q(subtitle__contains=wlist)) | Q(ind__contains=wlist))
             search.foodle_list = foodall.objects.filter(q).order_by('-data')
