@@ -84,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'food',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'USER': 'masterUsemame',
+        'PASSWORD': 'revereve',
+        'HOST': 'rds-mysql-test.crc028ywem9c.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }

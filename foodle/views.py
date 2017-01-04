@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404
 #from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from flynsarmy_paginator.paginator import FlynsarmyPaginator as Paginator
-from .models import gn
+from .models import foodall, gn
 from django.db.models import Q
 import random
 import pymysql
@@ -54,10 +54,10 @@ def search(request):
         else:
             #search.foodle_list = mysqlexport(search.searchwords)
             search.w_list = wordslist(search.searchwords)
-            q =Q(title__contains=search.searchwords) | Q(subtitle__contains=search.searchwords) | Q(ind__contains=search.searchwords)
+            q = (Q(title__contains=search.searchwords) | Q(subtitle__contains=search.searchwords)) | Q(ind__contains=search.searchwords)
             for wlist in search.w_list:
-                q = q | (Q(title__contains=wlist) | Q(subtitle__contains=wlist) | Q(ind__contains=wlist))
-            search.foodle_list = gn.objects.filter(q).order_by('-data')
+                q = q & ((Q(title__contains=wlist) | Q(subtitle__contains=wlist)) | Q(ind__contains=wlist))
+            search.foodle_list = foodall.objects.filter(q).order_by('-data')
 
     # Paging
     paginator = Paginator(search.foodle_list, 10, adjacent_pages = 5)
